@@ -1,94 +1,134 @@
 ///Timer Trivia game
 //making sure the DOM is ready
 $(document).ready(function(){
-///Theme = Know your meme
-
 
 //store your game in an object
-var questionsAnswers = [{
-	mainTimer:
- // // A user will have 45 seconds to select the correct answer
-		var timebegin = 0;
-		var timerIsOn = 0;
-		var seconds;
+"use strict";
+  var timeRemaining = 0;
+  var questionObject;
+  var timer;
+  var rightAnswers = [];
+  var wrongAnswers = [];
+  var noAnswer = [];
+  var unansweredQuestions = [];
+  var remainingQuestions = [ {
+    q: "what is the color of the moon?",
+    answer: ["Gray", "Blue", "Red", "Green"]
+    correct: "Gray"
+  }, {
+    q: "where does batman live?",
+    answer: ["Gotham", "New York", "LA", "Atlanta"]
+    correct: "Gotham"
+  }, {
+    q: "what is 2 + 2?",
+    answer: ["4", "7", "8", "12"]
+    correct: 4
+  }, {
+    q: "what is the microsoft logo?",
+    answer: ["window", "f", "mermaid", "triangle"]
+    correct: "window"
+  }, {
+    q: "what is the shape of a wheel?",
+    answer: ["circle", "square", "hexagon", "rectangle"]
+  	correct: "circle"
+  },
+];
+function incrementTimer() {
+    timer = setTimeout( function () {
+      $( '#timer' ).text( timeRemaining );
+      if ( timeRemaining <= 0 ) {
+        //unanswered
+        unanswered.push( questionObject );
+        alert( 'Time is UP' );
+        askQuestion();
+      } else {
+        timeRemaining = timeRemaining - 1;
+        incrementTimer();
+      }
 
-		function myFirstTimer () {
-			document.getElementById('time').innerHTML = timebegin;
-			timebegin = timebegin + 1;
-			seconds = setTimeout(function(){myFirstTimer()}, 1000);
-		}
+    }, 1000 );
+  }
 
-		function startCount (){
-			if (!timerIsOn) {
-				timerIsOn = 1;
-				myFirstTimer();
-			}
-		},
+  function startTimer() {
+    clearTimeout( timer );
+    timeRemaining = 10; // in seconds
+    incrementTimer();
+  }
 
-	//index 0 
-	timer: this.startCount ();,
-	question: "How are you?",
-	choices: ["good", "bad", "great"],
-	image: "http://placehold.it/350x150",
-	answer: 3 
-	},
+  function askQuestion() {
+    if ( remainingQuestions.length <= 0 ) {
+      // you done
+      clearTimeout(timer);
+      alert (" you got correct: " + rightAnswers.length);
+      alert (" you got wrong: " + wrongAnswers.length);
+      alert (" you got unanswered: " + unanswered.length);
+    } else {
+      startTimer();
+      $( '#containerForChoiceOptions' ).html( "" );
+      questionObject = remainingQuestions.pop();
+      //var answer = prompt( question.q );
+      // if ( answer === question.answer )
+      //   rightAnswers.push( question );
+      // else
+      //   wrongAnswers.push( question );
+      //   
+      var choices = questionObject.answer;
+      $( '#asked-question' ).html( questionObject.q );
+      for ( var i = 0; i < choices.length; i++ ) {
+        var choice = $( '<div>' );
+        choice.text( choices[ i ] );
+        choice.attr( 'id', "choice-" + i );
+        choice.attr( 'index', i );
+        $( '#containerForChoiceOptions' ).append( choice );
 
-{
-	//index 1
-	timer: "tiehere",
-	question: "What did you learn?",
-	choices: ["nothing", "all the code", "meh, some things"],
-	image: "http://placehold.it/350x150",
-	answer: 2
-
-}];
-
-for (var i = 0; i < questions.length; i++) {
-	questions[i]
-
-	//if userchoice === answer
-		//display that you guessed correct
-		//add a point to your correct answer array
-		//go to next question
-	//else 
-		//display you guessed incorrect
-		//add a point to your loss counter
-		//go to next question
-
-
-}
-
-console.log(questions[0].question);
-console.log(questions[0].answer);
-
-function makePic(){
-document.getElementById("photo").innerHTML = "<img src ='" +questions[0].image +"'>";
-}
-makePic();
-
-// ///vars I know I need
-// var meme = ["images/salt.jpeg", ""];
-// var timer = 
+        choice.click( function () {
+          //alert("I GUESSED "+ this.innerHTML);
+          if ( this.innerHTML === questionObject.correct ) {
+            alert( "YAY" );
+            rightAnswers.push( questionObject );
+            askQuestion();
+          } else {
+            alert( "boo!" );
+            wrongAnswers.push( questionObject );
+            askQuestion();
+          }
+        } );
+      }
+    }
+  }
+  askQuestion();
 
 
-// //we will click a "start game" button to begin
 
-// // A timer will begin counting from 0 and display a question with 4 answers
-// setInterval(function, milliseconds)
-// Same as setTimeout(), but repeats the execution of the function continuously.
+	
 
 
 
 
-// if a user selects the correct answer(within the time limit) they get a point and it goes onto the next question
 
-// otherwise they get a loss point and it goes onto the next question
 
-//each time it tells you if you got the correct answer or not 
 
-// if no selection is made in 45 seconds they ger a point under "unanswered" and it goes onto the next question
 
-// The timer restarts when they get to the next page and a new question loads
 
-// after they go through all of the questoins their score is displayed saying how many they got correct and incorrect 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

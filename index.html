@@ -1,5 +1,4 @@
 <!-- Homework Five Advanced Timer -->
-
 <!DOCTYPE html>
 
 <html lang="en-us">
@@ -7,7 +6,7 @@
     <script src="timertrivia.js"></script>
     <link rel="stylesheet" type="text/css" href="timergame.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
   <head>
 
     <meta charset="UTF-8">
@@ -19,18 +18,25 @@
   </head>
 
   <body>
+<div id= "startScreen">
+<input id="StartButton" type="button" value="Start"/>
+</div>
+<div id="timer"></div>
+    <h3 id="timer">Time Remaining: <span id="time-remaining"></span></h3>
+     <div class="main-container">
+  <h1>Totally Trivial</h1>
+  
+  
+  </div>
 
-      <p>Start:</p>
-
-      <div id="start"></div>
-
-      <br>
-
-      <button>GO!</button>
-
-      <p>Result:</p>
-
-      <div id="result"></div>
+  <div id="questions"></div>
+  
+  <div id="answers-panel">
+  
+  <input id="nextQuestion" type="button" value="Next Question"/>
+</div>
+  </div> 
+      
 
       <!-- Script -->
 <script type="text/javascript" src="sortArray.js"></script>
