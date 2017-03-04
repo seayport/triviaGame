@@ -1,7 +1,7 @@
 <!-- Homework Five Advanced Timer -->
 <!DOCTYPE html>
-
 <html lang="en-us">
+
 <head>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
     <script src= "assets/javascript/timer.js" ></script>
@@ -12,35 +12,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/timergame.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/stickyfooter.css">
-    <style> 
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/stickyfooter.css"> 
 </head>
-
   <body>
-  
-    
-
-          <!--//Main container-->  
-
-   
-      <div id="questions"></div>
-  
-      <div id="answers-panel"></div>
-  
-      
-
-    </div> 
- 
-  <!-- Inserted Bootstrap -->
+    <!--//Main container-Bootstrap-->
     <div class="container">
-      
+        <div id= "startScreen">
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
             <h1>SuperBowl Trivia!</h1>
             <br>
             <p>Okay sports fans how many questions can you answer correctly?
             Ready, Set, GO!!!!
+            </p>
+            
+            <button onclick="startGame()">Start Game</button></div>
+
+
+
             <h2 id="timer">Time Remaining: <span id="time-remaining"></span></h2>
             <div id="timer"></div></p>
       
