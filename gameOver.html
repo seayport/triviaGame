@@ -1,104 +1,95 @@
 <!-- Homework Five Advanced Timer -->
 <!DOCTYPE html>
-
 <html lang="en-us">
+
 <head>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
-    <script src= "assets/javascript/timer.js"></script>
+    <script src= "assets/javascript/timer.js" ></script>
    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperBowl Trivia Game</title>
+    <title>Super Bowl Trivia Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/timergame.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/stickyfooter.css">
-    <style> 
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/stickyfooter.css"> 
 </head>
   <body>
-          <!--//Main container-->  
-
-   
-      <div id="questions"></div>
-  
-      <div id="answers-panel"></div>
-  
-      
-
-    </div> 
- 
-  <!-- Inserted Bootstrap -->
+    <!--//Main container-Bootstrap-->
     <div class="container">
-      
+        <div id= "startScreen">
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>SuperBowl XXXIV- Atlanta, GA</h1>
+            <h1>Super Bowl Trivia!</h1>
             <br>
-            <p>St. Louis Rams 23, Tennessee Titans 16 <br>
-            Who played the half-time show at the "Dot-com Super Bowl" on January 30, 2000? 
-            <h2 id="timer">Time Remaining: <span id="time-remaining"></span></h2>
-            <div id="timer"></div></p>            
-            </p>
-        </header>
+      <div id="endScreen">
+          <div id="score">
+                <ul>
+                    <li>Correct answers:<p class="wins"></li>
+                    <li>Wrong answers:<p class="losses"></li>
+                    <li>No answer:<p class="noguess"></li>
+                </ul>
+         </div>
+    </div>
 
+            
+        <button onclick="startGame()">Start Game
+            </button>
+        </div>  
+    </div>         
+        </header>
         <hr>
 
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
+               
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Page Features -->
         <div class="row text-center">
-
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="assets/images/aguilera.jpg" alt="Aguilera">
+                    <img src="assets/images/SuperBowl_1993.jpg" alt="1993">
                     <div class="caption">
-                        <h3>Phil Collins, Christina Aguilera, Enrique Iglesias, Tina Turner, Toni Braxton, Edward James Olmos</h3>
-                          <a href="#0" class="btn btn-primary">A</a> 
-                        </p>
+                        <h2>1993</h2>
+                        <p>Pasadena, CA</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="assets/images/Pink.jpg" alt="Pink">
-                    <div class="caption"><br>
-                        <h3>Pink, Christine Aguilera, Faith Hill and Travis Tritt</h3>
-                         <a href="#1" class="btn btn-primary">B</a>
-                        </p>
+                    <img src="assets/images/Superbowl_1994.jpg" alt="1994">
+                    <div class="caption">
+                        <h2>1994 Atlanta, GA</h2>   
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="assets/images/Madonna.jpg" alt="Madonna">
-                    <div class="caption"><br>
-                        <h3>Madonna</h3>
-                        <a href="#2" class="btn btn-primary">C</a> 
-                        </p>
+                    <img src="assets/images/SuperBowl_1999.png" alt="1999">
+                    <div class="caption">
+                        <h2>1999 Miami, FL</h2>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="assets/images/Britney.jpg"  alt="Britney">
-                    <div class="caption"><br>
-                        <h3>Britney Spears, Aerosmith, NSYNC</h3>
-                            <a href="#3" class="btn btn-primary">D</a> 
+                    <img src="assets/images/SB_2000.jpg" alt="2000">
+                    <div class="caption">
+                        <h2>2000 Atlanta, GA</h2>
                     </div>
                 </div>
             </div>
-        </div>
         <!-- /.row -->
+
         <hr>
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -108,11 +99,15 @@
             </div>
         </footer>
 
-    </div>
     <!-- /.container -->
+
     <!-- jQuery -->
+    
+
     <!-- Bootstrap Core JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</script>
+
+<!--End of inserted Bootstrap--> 
       <!-- Script -->
 <script type="text/javascript" src="sortArray.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
